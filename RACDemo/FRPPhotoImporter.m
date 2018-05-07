@@ -50,12 +50,24 @@
 }
 
 + (void)downloadThumbnailForPhotoModel:(FRPPhotoModel *)photoModel {
-    NSAssert(photoModel.thumbnailURL, @"Thumbnail URL must not be nil");
+    [self download:photoModel.thumbnailURL withCompletion:^(NSData *data) {
+        photoModel.thumbnailData = data;
+    }];
+}
++ (void)downloadFullsizedImageForPhotoModel:(FRPPhotoModel *)photoModel {
+    [self download:photoModel.fullsizedURL withCompletion:^(NSData *data) {
+        photoModel.fullsizedData = data;
+    }];
+}
+
++ (void)download:(NSString *)urlString withCompletion:(void(^)(NSData *data))completion {
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:photoModel.thumbnailURL]];
+    NSAssert(urlString, @"url must not be nil");
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-        photoModel.thumbnailData = data;
+        if(completion) completion(data);
     }];
 }
 
@@ -65,5 +77,32 @@
     }] map:^id(NSDictionary *value) {
         return value[@"url"];
     }] array] firstObject];
+}
+
++(RACReplaySubject *)fetchPhotoDetails:(FRPPhotoModel *)photoModel {
+    
+    RACReplaySubject *subject = [RACReplaySubject subject];
+    
+    NSURLRequest *request = [self photoURLRequest:photoModel];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+        if(data) {
+            id results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            
+            [self configurePhotoModel:photoModel withDictionary:results[@"photo"]];
+            [self downloadFullsizedImageForPhotoModel:photoModel];
+            
+            [subject sendNext:photoModel];
+            [subject sendCompleted];
+        } else {
+            [subject sendError:connectionError];
+        }
+    }];
+    
+    return subject;
+}
+
+
++(NSURLRequest *)photoURLRequest:(FRPPhotoModel *)photoModel {
+    return [FRPAppDelegate.apiHelper urlRequestForPhotoID:[photoModel.identifier integerValue]];
 }
 @end

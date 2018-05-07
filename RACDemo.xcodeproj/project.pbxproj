@@ -10,6 +10,8 @@
 		0E1DDAEC20A028E400EBC8D2 /* FRPPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DDAEB20A028E400EBC8D2 /* FRPPhotoModel.m */; };
 		0E1DDAEF20A0296F00EBC8D2 /* FRPPhotoImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DDAEE20A0296F00EBC8D2 /* FRPPhotoImporter.m */; };
 		0E1DDAF220A030B700EBC8D2 /* FRPCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DDAF120A030B700EBC8D2 /* FRPCell.m */; };
+		0E1DDAF520A03AF000EBC8D2 /* FRPFullSizePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DDAF420A03AF000EBC8D2 /* FRPFullSizePhotoViewController.m */; };
+		0E1DDAF820A0406A00EBC8D2 /* FRPPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DDAF720A0406A00EBC8D2 /* FRPPhotoViewController.m */; };
 		0E6FEB29209FF45B002D15CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6FEB28209FF45B002D15CF /* AppDelegate.m */; };
 		0E6FEB2C209FF45B002D15CF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6FEB2B209FF45B002D15CF /* ViewController.m */; };
 		0E6FEB2F209FF45B002D15CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E6FEB2D209FF45B002D15CF /* Main.storyboard */; };
@@ -40,6 +42,10 @@
 		0E1DDAEE20A0296F00EBC8D2 /* FRPPhotoImporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRPPhotoImporter.m; sourceTree = "<group>"; };
 		0E1DDAF020A030B700EBC8D2 /* FRPCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRPCell.h; sourceTree = "<group>"; };
 		0E1DDAF120A030B700EBC8D2 /* FRPCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRPCell.m; sourceTree = "<group>"; };
+		0E1DDAF320A03AF000EBC8D2 /* FRPFullSizePhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRPFullSizePhotoViewController.h; sourceTree = "<group>"; };
+		0E1DDAF420A03AF000EBC8D2 /* FRPFullSizePhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRPFullSizePhotoViewController.m; sourceTree = "<group>"; };
+		0E1DDAF620A0406A00EBC8D2 /* FRPPhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRPPhotoViewController.h; sourceTree = "<group>"; };
+		0E1DDAF720A0406A00EBC8D2 /* FRPPhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRPPhotoViewController.m; sourceTree = "<group>"; };
 		0E6FEB24209FF45B002D15CF /* RACDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E6FEB27209FF45B002D15CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0E6FEB28209FF45B002D15CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -104,6 +110,10 @@
 				0E6FEB5220A021CE002D15CF /* FRPGalleryFlowLayout.m */,
 				0E1DDAF020A030B700EBC8D2 /* FRPCell.h */,
 				0E1DDAF120A030B700EBC8D2 /* FRPCell.m */,
+				0E1DDAF320A03AF000EBC8D2 /* FRPFullSizePhotoViewController.h */,
+				0E1DDAF420A03AF000EBC8D2 /* FRPFullSizePhotoViewController.m */,
+				0E1DDAF620A0406A00EBC8D2 /* FRPPhotoViewController.h */,
+				0E1DDAF720A0406A00EBC8D2 /* FRPPhotoViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -352,7 +362,9 @@
 				0E6FEB5320A021CE002D15CF /* FRPGalleryFlowLayout.m in Sources */,
 				0E1DDAF220A030B700EBC8D2 /* FRPCell.m in Sources */,
 				0E6FEB2C209FF45B002D15CF /* ViewController.m in Sources */,
+				0E1DDAF820A0406A00EBC8D2 /* FRPPhotoViewController.m in Sources */,
 				0E6FEB37209FF45D002D15CF /* main.m in Sources */,
+				0E1DDAF520A03AF000EBC8D2 /* FRPFullSizePhotoViewController.m in Sources */,
 				0E6FEB29209FF45B002D15CF /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7C4W75ZNA4;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RACDemo/FRP-Prefix.pch";
 				INFOPLIST_FILE = RACDemo/Info.plist;
@@ -530,6 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7C4W75ZNA4;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RACDemo/FRP-Prefix.pch";
 				INFOPLIST_FILE = RACDemo/Info.plist;
