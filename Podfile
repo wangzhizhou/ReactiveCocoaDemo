@@ -7,11 +7,14 @@ target 'RACDemo' do
 
   # Pods for RACDemo
   pod 'ReactiveCocoa', '2.1.4'
+  pod 'libextobjc', '0.4.1'
+  pod '500px-iOS-api','1.0.4'
+  pod 'SVProgressHUD','0.9'
 
   target 'RACDemoTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'ReactiveCocoa', '2.1.4'
+
 
   end
 
