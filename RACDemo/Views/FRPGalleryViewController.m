@@ -16,7 +16,6 @@
 #import "FRPGalleryViewModel.h"
 
 @interface FRPGalleryViewController ()
-@property (nonatomic, strong)NSArray *photosArray;
 @property (nonatomic, strong)id collectionViewDelegate;
 @property (nonatomic, strong)FRPGalleryViewModel *viewModel;
 @end
@@ -52,7 +51,7 @@ static NSString * const reuseIdentifier = @"Cell";
         @strongify(self);
         NSIndexPath *indexPath = [value second];
         
-        FRPFullSizePhotoViewModel *viewModel = [[FRPFullSizePhotoViewModel alloc] initWithPhotoArray:self.photosArray initialPhotoIndex:indexPath.item];
+        FRPFullSizePhotoViewModel *viewModel = [[FRPFullSizePhotoViewModel alloc] initWithPhotoArray:self.viewModel.model initialPhotoIndex:indexPath.item];
         
         FRPFullSizePhotoViewController *viewController = [[FRPFullSizePhotoViewController alloc] init];
         viewController.viewModel = viewModel;
@@ -62,12 +61,11 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.collectionView.delegate = self.collectionViewDelegate;
     
-
     self.viewModel = [[FRPGalleryViewModel alloc] init];
-    RAC(self,viewModel.model) = [[[photosLoadded doCompleted:^{
+    [RACObserve(self.viewModel, model) subscribeNext:^(id x) {
         @strongify(self);
         [self.collectionView reloadData];
-    }] logError] catchTo:[RACSignal empty]];
+    }];
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -78,14 +76,14 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.photosArray.count;
+    return self.viewModel.model.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FRPCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
-    cell.photoModel = self.photosArray[indexPath.item];
+    cell.photoModel = self.viewModel.model[indexPath.item];
     return cell;
 }
 

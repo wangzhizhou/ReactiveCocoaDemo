@@ -7,9 +7,9 @@
 //
 
 #import "FRPFullSizePhotoViewController.h"
-#import "FRPPhotoModel.h"
 #import "FRPPhotoViewController.h"
 #import "FRPFullSizePhotoViewModel.h"
+#import "FRPPhotoViewModel.h"
 
 @interface FRPFullSizePhotoViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
 @property(nonatomic,strong)UIPageViewController *pageViewController;
@@ -43,8 +43,8 @@
 - (FRPPhotoViewController *)photoViewControllerForIndex:(NSInteger)index {
     if(index >= 0 && index < self.viewModel.model.count) {
         FRPPhotoModel *photoModel = self.viewModel.model[index];
-        
-        FRPPhotoViewController *photoViewController = [[FRPPhotoViewController alloc] initWithPhotoModel:photoModel index:index];
+        FRPPhotoViewModel *viewModel = [[FRPPhotoViewModel alloc] initWithModel:photoModel];
+        FRPPhotoViewController *photoViewController = [[FRPPhotoViewController alloc] initWithPhotoViewModel:viewModel index:index];
         return photoViewController;
     }
     return nil;
@@ -53,7 +53,7 @@
 #pragma mark <UIPageViewControllerDelegate>
 -(void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
     
-    self.title = [[pageViewController.viewControllers.firstObject photoModel] photoName];
+    self.title = [[(FRPPhotoViewController *)(pageViewController.viewControllers.firstObject) viewModel] photoName];
     [self.delegate userDidScroll:self toPhotoAtIndex:[pageViewController.viewControllers.firstObject photoIndex]];
 }
 #pragma mark <UIPageViewControllerDataSource>

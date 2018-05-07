@@ -7,20 +7,20 @@
 //
 
 #import "FRPPhotoViewController.h"
-#import "FRPPhotoModel.h"
 #import "FRPPhotoImporter.h"
+#import "FRPPhotoViewModel.h"
 
 @interface FRPPhotoViewController ()
+@property(nonatomic,strong)FRPPhotoViewModel *viewModel;
 @property(nonatomic,assign)NSInteger photoIndex;
-@property(nonatomic,strong)FRPPhotoModel *photoModel;
 @property(nonatomic,weak)UIImageView *imageView;
 @end
 
 @implementation FRPPhotoViewController
 
--(instancetype)initWithPhotoModel:(FRPPhotoModel *)photoModel index:(NSUInteger)photoIndex {
+-(instancetype)initWithPhotoViewModel:(FRPPhotoViewModel *)photoViewModel index:(NSUInteger)photoIndex {
     if(self = [super init]) {
-        self.photoModel = photoModel;
+        self.viewModel = photoViewModel;
         self.photoIndex = photoIndex;
     }
     return self;
@@ -32,24 +32,30 @@
     
     self.view.backgroundColor = UIColor.blackColor;
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    RAC(imageView, image) = [RACObserve(self.photoModel, fullsizedData) map:^id(id value) {
-        return [UIImage imageWithData:value];
-    }];
+    RAC(imageView, image) = RACObserve(self.viewModel, photoImage);
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:imageView];
     self.imageView = imageView;
+                             
+    [RACObserve(self.viewModel,isLoading) subscribeNext:^(NSNumber *loading) {
+        if(loading.boolValue) {
+            [SVProgressHUD show];
+        } else {
+            [SVProgressHUD dismiss];
+        }
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [SVProgressHUD show];
+    self.viewModel.active = YES;
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
     
-    [[FRPPhotoImporter fetchPhotoDetails:self.photoModel] subscribeError:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"Error"];
-    } completed:^{
-        [SVProgressHUD dismiss];
-    }];
+    self.viewModel.active = NO;
 }
 
 @end
