@@ -17,15 +17,6 @@
 
 @implementation FRPGalleryViewController
 
--(instancetype)init {
-    
-    FRPGalleryFlowLayout *flowLayout = [[FRPGalleryFlowLayout alloc] init];
-    if(self = [self initWithCollectionViewLayout:flowLayout]) {
-        
-    }
-    return self;
-}
-
 static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
@@ -39,6 +30,10 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Do any additional setup after loading the view.
     self.title = @"Popular on 500px";
+    
+    FRPGalleryFlowLayout *flowLayout = [[FRPGalleryFlowLayout alloc] init];
+    self.collectionView.collectionViewLayout = flowLayout;
+    
     @weakify(self);
     [RACObserve(self, photosArray) subscribeNext:^(id x) {
         @strongify(self);
