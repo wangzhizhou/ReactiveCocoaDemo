@@ -16,20 +16,6 @@
 
 @implementation FRPCell
 
--(void)prepareForReuse {
-    [super prepareForReuse];
-    
-    [self.subscription dispose];
-    self.subscription = nil;
-}
--(void)setPhotoModel:(FRPPhotoModel *)photoModel {
-    self.subscription = [[[RACObserve(photoModel, thumbnailData) filter:^BOOL(id value) {
-        return value != nil;
-    }] map:^id(id value) {
-        return [UIImage imageWithData:value];
-    }] setKeyPath:@keypath(self.imageView,image) onObject:self.imageView];
-}
-
 -(instancetype)initWithFrame:(CGRect)frame {
     if(self = [super initWithFrame:frame]){
         self.backgroundColor = UIColor.darkGrayColor;
@@ -37,6 +23,10 @@
         imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         [self.contentView addSubview:imageView];
         self.imageView = imageView;
+        
+        RAC(self.imageView, image) = [[RACObserve(self, photoModel.thumbnailData) ignore:nil] map:^id(id value) {
+            return [UIImage imageWithData: value];
+        }];
     }
     return self;
 }

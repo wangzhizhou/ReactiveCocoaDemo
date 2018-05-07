@@ -10,5 +10,5 @@
 
 @class FRPPhotoModel;
 @interface FRPCell : UICollectionViewCell
-- (void)setPhotoModel:(FRPPhotoModel *)model;
+@property(nonatomic,strong)FRPPhotoModel *photoModel;
 @end
