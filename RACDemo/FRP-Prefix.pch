@@ -15,8 +15,6 @@
 #import <500px-iOS-api/PXAPI.h>
 #import <libextobjc/EXTScope.h>
 #import <SVProgressHUD.h>
-
-#import "AppDelegate.h"
-#define  FRPAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+#import <ReactiveViewModel.h>
 
 #endif /* FRP_Prefix_pch */

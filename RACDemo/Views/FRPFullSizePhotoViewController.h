@@ -9,14 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class FRPFullSizePhotoViewController;
+@class FRPFullSizePhotoViewModel;
 @protocol FRPFullSizePhotoViewControllerDelegate<NSObject>
 -(void)userDidScroll:(FRPFullSizePhotoViewController*)viewController toPhotoAtIndex:(NSInteger)index;
 @end
 
 @interface FRPFullSizePhotoViewController : UIViewController
-
-@property(nonatomic,readonly)NSArray*photoModelArray;
 @property (nonatomic, weak)id<FRPFullSizePhotoViewControllerDelegate> delegate;
-
--(instancetype)initWithPhotoModels:(NSArray *)photoModelArray currentPhotoIndex:(NSUInteger)photoIndex;
+@property(nonatomic,strong)FRPFullSizePhotoViewModel *viewModel;
 @end

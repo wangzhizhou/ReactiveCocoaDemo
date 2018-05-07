@@ -28,7 +28,8 @@
 }
 
 + (NSURLRequest *)popularURLRequest {
-    return [FRPAppDelegate.apiHelper urlRequestForPhotoFeature:PXAPIHelperPhotoFeaturePopular resultsPerPage:100 page:0 photoSizes:PXPhotoModelSizeThumbnail sortOrder:PXAPIHelperSortOrderRating except:PXPhotoModelCategoryNude];
+    
+    return [[PXRequest apiHelper] urlRequestForPhotoFeature:PXAPIHelperPhotoFeaturePopular resultsPerPage:100 page:0 photoSizes:PXPhotoModelSizeThumbnail sortOrder:PXAPIHelperSortOrderRating except:PXPhotoModelCategoryNude];
 }
 
 + (void)configurePhotoModel:(FRPPhotoModel *)photoModel withDictionary:(NSDictionary *)dictionary {
@@ -87,6 +88,6 @@
 
 
 +(NSURLRequest *)photoURLRequest:(FRPPhotoModel *)photoModel {
-    return [FRPAppDelegate.apiHelper urlRequestForPhotoID:[photoModel.identifier integerValue]];
+    return [[PXRequest apiHelper] urlRequestForPhotoID:[photoModel.identifier integerValue]];
 }
 @end

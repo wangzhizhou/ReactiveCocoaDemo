@@ -12,10 +12,13 @@
 #import "FRPPhotoImporter.h"
 #import "FRPFullSizePhotoViewController.h"
 #import <ReactiveCocoa/RACDelegateProxy.h>
+#import "FRPFullSizePhotoViewModel.h"
+#import "FRPGalleryViewModel.h"
 
 @interface FRPGalleryViewController ()
 @property (nonatomic, strong)NSArray *photosArray;
 @property (nonatomic, strong)id collectionViewDelegate;
+@property (nonatomic, strong)FRPGalleryViewModel *viewModel;
 @end
 
 @implementation FRPGalleryViewController
@@ -47,8 +50,12 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionViewDelegate = [[RACDelegateProxy alloc] initWithProtocol:@protocol(UICollectionViewDelegate)];
     [[self.collectionViewDelegate rac_signalForSelector:@selector(collectionView:didSelectItemAtIndexPath:)] subscribeNext:^(RACTuple *value) {
         @strongify(self);
+        NSIndexPath *indexPath = [value second];
         
-        FRPFullSizePhotoViewController *viewController = [[FRPFullSizePhotoViewController alloc] initWithPhotoModels:self.photosArray currentPhotoIndex:[(NSIndexPath*)value.second item]];
+        FRPFullSizePhotoViewModel *viewModel = [[FRPFullSizePhotoViewModel alloc] initWithPhotoArray:self.photosArray initialPhotoIndex:indexPath.item];
+        
+        FRPFullSizePhotoViewController *viewController = [[FRPFullSizePhotoViewController alloc] init];
+        viewController.viewModel = viewModel;
         viewController.delegate = (id<FRPFullSizePhotoViewControllerDelegate>)viewControllerDelegate;
         [self.navigationController pushViewController:viewController animated:YES];
     }];
@@ -56,12 +63,8 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionView.delegate = self.collectionViewDelegate;
     
 
-    RACSignal *photoSignal = [FRPPhotoImporter importPhotos];
-    RACSignal *photosLoadded = [photoSignal catch:^RACSignal *(NSError *error) {
-        NSLog(@"Couldn't fetch photos from 500px: %@", error);
-        return [RACSignal empty];
-    }];
-    RAC(self,photosArray) = [[[photosLoadded doCompleted:^{
+    self.viewModel = [[FRPGalleryViewModel alloc] init];
+    RAC(self,viewModel.model) = [[[photosLoadded doCompleted:^{
         @strongify(self);
         [self.collectionView reloadData];
     }] logError] catchTo:[RACSignal empty]];

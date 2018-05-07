@@ -9,28 +9,22 @@
 #import "FRPFullSizePhotoViewController.h"
 #import "FRPPhotoModel.h"
 #import "FRPPhotoViewController.h"
+#import "FRPFullSizePhotoViewModel.h"
 
 @interface FRPFullSizePhotoViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource>
-
-@property(nonatomic,strong)NSArray  *photoModelArray;
 @property(nonatomic,strong)UIPageViewController *pageViewController;
 
 @end
 
 @implementation FRPFullSizePhotoViewController
--(instancetype)initWithPhotoModels:(NSArray *)photoModelArray currentPhotoIndex:(NSUInteger)photoIndex {
+-(instancetype)init {
     
     if(self = [super init]) {
-        self.photoModelArray = photoModelArray;
-        self.title = [self.photoModelArray[photoIndex] photoName];
-        
         self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:@{UIPageViewControllerOptionInterPageSpacingKey:@(30)}];
         self.pageViewController.dataSource = self;
         self.pageViewController.delegate = self;
         
         [self addChildViewController:self.pageViewController];
-        
-        [self.pageViewController setViewControllers:@[[self photoViewControllerForIndex:photoIndex]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     }
     return self;
 }
@@ -41,12 +35,14 @@
     
     self.view.backgroundColor = UIColor.blackColor;
     self.pageViewController.view.frame = self.view.bounds;
+    [self.pageViewController setViewControllers:@[[self photoViewControllerForIndex:self.viewModel.initialPhotoIndex]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     [self.view addSubview:self.pageViewController.view];
+    self.title = self.viewModel.initialPhotoName;
 }
 
 - (FRPPhotoViewController *)photoViewControllerForIndex:(NSInteger)index {
-    if(index >= 0 && index < self.photoModelArray.count) {
-        FRPPhotoModel *photoModel = self.photoModelArray[index];
+    if(index >= 0 && index < self.viewModel.model.count) {
+        FRPPhotoModel *photoModel = self.viewModel.model[index];
         
         FRPPhotoViewController *photoViewController = [[FRPPhotoViewController alloc] initWithPhotoModel:photoModel index:index];
         return photoViewController;

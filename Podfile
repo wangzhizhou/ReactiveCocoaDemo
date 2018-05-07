@@ -10,6 +10,7 @@ target 'RACDemo' do
   pod 'libextobjc', '0.4.1'
   pod '500px-iOS-api','1.0.4'
   pod 'SVProgressHUD','0.9'
+  pod 'ReactiveViewModel', '0.1.1'
 
   target 'RACDemoTests' do
     inherit! :search_paths
