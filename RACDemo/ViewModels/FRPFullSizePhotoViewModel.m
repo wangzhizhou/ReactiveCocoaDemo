@@ -32,6 +32,11 @@
     return nil;
 }
 -(NSString *)initialPhotoName {
-    return [self.model[self.initialPhotoIndex] photoName];
+    FRPPhotoModel *photoModel = [self initialPhotoModel];
+    return [photoModel photoName];
+}
+
+- (FRPPhotoModel *)initialPhotoModel {
+    return [self photoModelAtIndex:self.initialPhotoIndex];
 }
 @end

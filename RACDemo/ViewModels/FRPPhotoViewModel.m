@@ -36,8 +36,6 @@
         RAC(self, photoImage) = [RACObserve(self.model, fullsizedData) map:^id(id value) {
             return [UIImage imageWithData:value];
         }];
-        
-        
     }
     return self;
 }
