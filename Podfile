@@ -6,11 +6,13 @@ target 'RACDemo' do
   # use_frameworks!
 
   # Pods for RACDemo
-  pod 'RXCollections', '1.0'
+  pod 'ReactiveCocoa', '2.1.4'
 
   target 'RACDemoTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'ReactiveCocoa', '2.1.4'
+
   end
 
 end
