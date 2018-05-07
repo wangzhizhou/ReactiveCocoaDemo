@@ -12,5 +12,5 @@
 @interface FRPPhotoImporter : NSObject
 +(RACSignal *)importPhotos;
 
-+(RACReplaySubject *)fetchPhotoDetails:(FRPPhotoModel *)photoModel;
++(RACSignal *)fetchPhotoDetails:(FRPPhotoModel *)photoModel;
 @end
