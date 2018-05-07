@@ -14,6 +14,8 @@
 		0E6FEB34209FF45D002D15CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E6FEB32209FF45D002D15CF /* LaunchScreen.storyboard */; };
 		0E6FEB37209FF45D002D15CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6FEB36209FF45D002D15CF /* main.m */; };
 		0E6FEB41209FF45D002D15CF /* RACDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6FEB40209FF45D002D15CF /* RACDemoTests.m */; };
+		2840DCF92D4431EABC8FF15E /* libPods-RACDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D52C69F91DE545BCC42E1BD8 /* libPods-RACDemo.a */; };
+		ED82CA69CFF5867BC326BAA1 /* libPods-RACDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A0DC97B53FA766CF60743D /* libPods-RACDemoTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,12 @@
 		0E6FEB3C209FF45D002D15CF /* RACDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RACDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E6FEB40209FF45D002D15CF /* RACDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACDemoTests.m; sourceTree = "<group>"; };
 		0E6FEB42209FF45D002D15CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E61A8FE821F0AC84E8E1D30 /* Pods-RACDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RACDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RACDemo/Pods-RACDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		5F1F51599C9807439655837D /* Pods-RACDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RACDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RACDemo/Pods-RACDemo.release.xcconfig"; sourceTree = "<group>"; };
+		70A0DC97B53FA766CF60743D /* libPods-RACDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RACDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3F61ABBF3A5F0D695AA6D61 /* Pods-RACDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RACDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RACDemoTests/Pods-RACDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		D4F2307629B2ACE77D919259 /* Pods-RACDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RACDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RACDemoTests/Pods-RACDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D52C69F91DE545BCC42E1BD8 /* libPods-RACDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RACDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2840DCF92D4431EABC8FF15E /* libPods-RACDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED82CA69CFF5867BC326BAA1 /* libPods-RACDemoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +76,8 @@
 				0E6FEB26209FF45B002D15CF /* RACDemo */,
 				0E6FEB3F209FF45D002D15CF /* RACDemoTests */,
 				0E6FEB25209FF45B002D15CF /* Products */,
+				9F2AF53C177D52C014D5815A /* Pods */,
+				95E6DE369245C3F3EBE7148E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +115,26 @@
 			path = RACDemoTests;
 			sourceTree = "<group>";
 		};
+		95E6DE369245C3F3EBE7148E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D52C69F91DE545BCC42E1BD8 /* libPods-RACDemo.a */,
+				70A0DC97B53FA766CF60743D /* libPods-RACDemoTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9F2AF53C177D52C014D5815A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E61A8FE821F0AC84E8E1D30 /* Pods-RACDemo.debug.xcconfig */,
+				5F1F51599C9807439655837D /* Pods-RACDemo.release.xcconfig */,
+				D4F2307629B2ACE77D919259 /* Pods-RACDemoTests.debug.xcconfig */,
+				D3F61ABBF3A5F0D695AA6D61 /* Pods-RACDemoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,6 +142,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E6FEB45209FF45D002D15CF /* Build configuration list for PBXNativeTarget "RACDemo" */;
 			buildPhases = (
+				274C3FE4A8937532A65FF41C /* [CP] Check Pods Manifest.lock */,
 				0E6FEB20209FF45B002D15CF /* Sources */,
 				0E6FEB21209FF45B002D15CF /* Frameworks */,
 				0E6FEB22209FF45B002D15CF /* Resources */,
@@ -127,6 +160,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E6FEB48209FF45D002D15CF /* Build configuration list for PBXNativeTarget "RACDemoTests" */;
 			buildPhases = (
+				E065FE4CB437872AED1A223E /* [CP] Check Pods Manifest.lock */,
 				0E6FEB38209FF45D002D15CF /* Sources */,
 				0E6FEB39209FF45D002D15CF /* Frameworks */,
 				0E6FEB3A209FF45D002D15CF /* Resources */,
@@ -197,6 +231,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		274C3FE4A8937532A65FF41C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RACDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E065FE4CB437872AED1A223E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RACDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0E6FEB20209FF45B002D15CF /* Sources */ = {
@@ -359,14 +432,12 @@
 		};
 		0E6FEB46209FF45D002D15CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E61A8FE821F0AC84E8E1D30 /* Pods-RACDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RACDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joker.RACDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -375,14 +446,12 @@
 		};
 		0E6FEB47209FF45D002D15CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F1F51599C9807439655837D /* Pods-RACDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RACDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joker.RACDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -391,15 +460,12 @@
 		};
 		0E6FEB49209FF45D002D15CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4F2307629B2ACE77D919259 /* Pods-RACDemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RACDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joker.RACDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -409,15 +475,12 @@
 		};
 		0E6FEB4A209FF45D002D15CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3F61ABBF3A5F0D695AA6D61 /* Pods-RACDemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RACDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joker.RACDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
