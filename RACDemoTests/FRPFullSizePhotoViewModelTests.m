@@ -35,7 +35,7 @@ describe(@"FRPFullSizePhotoModel", ^{
         
     });
     
-    it(@"shouldreturnnilforanout-of-boundsphotoindex", ^{
+    it(@"should return nil for an out-of-bounds photo index", ^{
         NSArray *model = @[[NSObject new]];
         NSInteger initialPhotoIndex = 1337;
         
@@ -48,7 +48,7 @@ describe(@"FRPFullSizePhotoModel", ^{
         expect(aboveBoundsModel).to.beNil();
     });
     
-    it(@"shouldreturnthecorrectmodelforphotoModelAtIndex:", ^{
+    it(@"should return the correct model for photo Model At Index:", ^{
         id photoModel = [NSObject new];
         NSArray *model = @[photoModel];
         NSInteger initialPhotoIndex = 1337;
@@ -67,10 +67,17 @@ describe(@"FRPFullSizePhotoModel", ^{
         FRPFullSizePhotoViewModel *viewModel = [[FRPFullSizePhotoViewModel alloc] initWithPhotoArray:model initialPhotoIndex:initialPhotoIndex];
         
         id mockViewModel = [OCMockObject partialMockForObject:viewModel];
+        
+        // mock对象方式，预估会以initialPhotoIndex参数调用photoModelAtIndex:方法，并且返回model[0]
+        // 在[mockViewModel verify]中验证
         [[[mockViewModel expect] andReturn:model[0]] photoModelAtIndex:initialPhotoIndex];
         
+        // 测试动作
         id returnedObject = [mockViewModel initialPhotoModel];
+        // 使用expect方法验证
         expect(returnedObject).to.equal(model[0]);
+        
+        // 使用mock对象的方式进行验证
         [mockViewModel verify];
     });
 });
