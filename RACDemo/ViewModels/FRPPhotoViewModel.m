@@ -24,13 +24,7 @@
         @weakify(self);
         [self.didBecomeActiveSignal subscribeNext:^(id x) {
             @strongify(self);
-            self.isLoading = YES;
-            [[FRPPhotoImporter fetchPhotoDetails:self.model] subscribeError:^(NSError *error) {
-                NSLog(@"Could not fetch photo details: %@", error);
-            } completed:^{
-                self.isLoading = NO;
-                NSLog(@"Fetched photo details.");
-            }];
+            [self downloadPhotoModelDetails];
         }];
         
         RAC(self, photoImage) = [RACObserve(self.model, fullsizedData) map:^id(id value) {
@@ -38,6 +32,16 @@
         }];
     }
     return self;
+}
+
+-(void)downloadPhotoModelDetails {
+    self.isLoading = YES;
+    [[FRPPhotoImporter fetchPhotoDetails:self.model] subscribeError:^(NSError *error) {
+        NSLog(@"Could not fetch photo details: %@", error);
+    } completed:^{
+        self.isLoading = NO;
+        NSLog(@"Fetched photo details.");
+    }];
 }
 
 -(NSString *)photoName {

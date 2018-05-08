@@ -14,6 +14,7 @@
 		0E1DDAF820A0406A00EBC8D2 /* FRPPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DDAF720A0406A00EBC8D2 /* FRPPhotoViewController.m */; };
 		0E1DDAFB20A0748200EBC8D2 /* FRPFullSizePhotoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DDAFA20A0748200EBC8D2 /* FRPFullSizePhotoViewModel.m */; };
 		0E1DDAFE20A07D9200EBC8D2 /* FRPGalleryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DDAFD20A07D9200EBC8D2 /* FRPGalleryViewModel.m */; };
+		0E1DDB0020A1340F00EBC8D2 /* FRPPhotoViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DDAFF20A1340F00EBC8D2 /* FRPPhotoViewModelTests.m */; };
 		0E6FEB29209FF45B002D15CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6FEB28209FF45B002D15CF /* AppDelegate.m */; };
 		0E6FEB2C209FF45B002D15CF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E6FEB2B209FF45B002D15CF /* ViewController.m */; };
 		0E6FEB2F209FF45B002D15CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E6FEB2D209FF45B002D15CF /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		0E1DDAFA20A0748200EBC8D2 /* FRPFullSizePhotoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRPFullSizePhotoViewModel.m; sourceTree = "<group>"; };
 		0E1DDAFC20A07D9200EBC8D2 /* FRPGalleryViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRPGalleryViewModel.h; sourceTree = "<group>"; };
 		0E1DDAFD20A07D9200EBC8D2 /* FRPGalleryViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRPGalleryViewModel.m; sourceTree = "<group>"; };
+		0E1DDAFF20A1340F00EBC8D2 /* FRPPhotoViewModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRPPhotoViewModelTests.m; sourceTree = "<group>"; };
 		0E6FEB24209FF45B002D15CF /* RACDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E6FEB27209FF45B002D15CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0E6FEB28209FF45B002D15CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				0E6FEB40209FF45D002D15CF /* RACDemoTests.m */,
 				0E6FEB42209FF45D002D15CF /* Info.plist */,
 				F384C74020A0A25B00DA4580 /* FRPFullSizePhotoViewModelTests.m */,
+				0E1DDAFF20A1340F00EBC8D2 /* FRPPhotoViewModelTests.m */,
 			);
 			path = RACDemoTests;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 			files = (
 				F384C74120A0A25B00DA4580 /* FRPFullSizePhotoViewModelTests.m in Sources */,
 				0E6FEB41209FF45D002D15CF /* RACDemoTests.m in Sources */,
+				0E1DDB0020A1340F00EBC8D2 /* FRPPhotoViewModelTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
