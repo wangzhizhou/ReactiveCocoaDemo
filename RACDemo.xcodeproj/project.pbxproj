@@ -56,6 +56,7 @@
 		0E1DDAFC20A07D9200EBC8D2 /* FRPGalleryViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRPGalleryViewModel.h; sourceTree = "<group>"; };
 		0E1DDAFD20A07D9200EBC8D2 /* FRPGalleryViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRPGalleryViewModel.m; sourceTree = "<group>"; };
 		0E1DDAFF20A1340F00EBC8D2 /* FRPPhotoViewModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRPPhotoViewModelTests.m; sourceTree = "<group>"; };
+		0E1DDB0120A14B7400EBC8D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0E6FEB24209FF45B002D15CF /* RACDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E6FEB27209FF45B002D15CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0E6FEB28209FF45B002D15CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -147,6 +148,7 @@
 		0E6FEB1B209FF45B002D15CF = {
 			isa = PBXGroup;
 			children = (
+				0E1DDB0120A14B7400EBC8D2 /* README.md */,
 				0E6FEB26209FF45B002D15CF /* RACDemo */,
 				0E6FEB3F209FF45D002D15CF /* RACDemoTests */,
 				0E6FEB25209FF45B002D15CF /* Products */,
