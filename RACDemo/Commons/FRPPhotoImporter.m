@@ -10,6 +10,9 @@
 #import "FRPPhotoModel.h"
 
 @implementation FRPPhotoImporter
+
+# pragma mark - 获取缩略图
+
 + (RACSignal *)importPhotos {
     
     NSURLRequest *request = [self popularURLRequest];
@@ -27,6 +30,12 @@
     }] publish] autoconnect];
 }
 
+
+/**
+ 构造网络请求，这里请求第一页流行缩略图数据，分页数据是每页100条，按排名顺序返回，忽略无类别图片
+
+ @return 缩略图数据获取请求
+ */
 + (NSURLRequest *)popularURLRequest {
     
     return [[PXRequest apiHelper] urlRequestForPhotoFeature:PXAPIHelperPhotoFeaturePopular resultsPerPage:100 page:0 photoSizes:PXPhotoModelSizeThumbnail sortOrder:PXAPIHelperSortOrderRating except:PXPhotoModelCategoryNude];
@@ -43,6 +52,14 @@
     if(dictionary[@"comments_count"]) {
         photoModel.fullsizedURL = [self urlForImageSize:4 inArray:dictionary[@"images"]];
     }
+}
+
++ (NSString *)urlForImageSize:(NSUInteger)size inArray:(NSArray *)array {
+    return [[[[array.rac_sequence filter:^BOOL(NSDictionary *value) {
+        return [value[@"size"] integerValue] == size;
+    }] map:^id(NSDictionary *value) {
+        return value[@"url"];
+    }] array] firstObject];
 }
 
 + (void)downloadThumbnailForPhotoModel:(FRPPhotoModel *)photoModel {
@@ -63,13 +80,8 @@
     }] deliverOn: [RACScheduler mainThreadScheduler]];
 }
 
-+ (NSString *)urlForImageSize:(NSUInteger)size inArray:(NSArray *)array {
-    return [[[[array.rac_sequence filter:^BOOL(NSDictionary *value) {
-        return [value[@"size"] integerValue] == size;
-    }] map:^id(NSDictionary *value) {
-        return value[@"url"];
-    }] array] firstObject];
-}
+
+# pragma mark - 获取原图
 
 +(RACSignal *)fetchPhotoDetails:(FRPPhotoModel *)photoModel {
     
@@ -86,7 +98,12 @@
     }] publish] autoconnect];
 }
 
+/**
+ 原图数据拉取请求构造
 
+ @param photoModel 具体图片的信息
+ @return 原图数据拉取请求
+ */
 +(NSURLRequest *)photoURLRequest:(FRPPhotoModel *)photoModel {
     return [[PXRequest apiHelper] urlRequestForPhotoID:[photoModel.identifier integerValue]];
 }

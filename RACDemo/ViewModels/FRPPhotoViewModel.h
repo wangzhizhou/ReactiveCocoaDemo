@@ -16,4 +16,5 @@
 @property (nonatomic, readonly, assign)BOOL isLoading;
 
 -(NSString *)photoName;
+
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class FRPGalleryViewModel;
 @interface FRPGalleryViewController : UICollectionViewController
-
+@property (nonatomic, readonly)FRPGalleryViewModel *viewModel;
 @end

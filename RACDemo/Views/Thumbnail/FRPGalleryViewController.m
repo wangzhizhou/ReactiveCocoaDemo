@@ -9,7 +9,6 @@
 #import "FRPGalleryViewController.h"
 #import "FRPGalleryFlowLayout.h"
 #import "FRPCell.h"
-#import "FRPPhotoImporter.h"
 #import "FRPFullSizePhotoViewController.h"
 #import <ReactiveCocoa/RACDelegateProxy.h>
 #import "FRPFullSizePhotoViewModel.h"

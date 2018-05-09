@@ -17,5 +17,6 @@
 @property(nonatomic, readonly)NSString *initialPhotoName;
 
 -(instancetype)initWithPhotoArray:(NSArray*)photoArray initialPhotoIndex:(NSInteger)initialPhotoIndex;
+
 -(FRPPhotoModel*)photoModelAtIndex:(NSInteger)index;
 @end

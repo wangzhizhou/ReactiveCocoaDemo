@@ -20,15 +20,18 @@
 @dynamic model;
 
 - (instancetype)initWithModel:(FRPPhotoModel *)model {
+    
     if(self = [super initWithModel:model]) {
+        
         @weakify(self);
-        [self.didBecomeActiveSignal subscribeNext:^(id x) {
-            @strongify(self);
-            [self downloadPhotoModelDetails];
-        }];
         
         RAC(self, photoImage) = [RACObserve(self.model, fullsizedData) map:^id(id value) {
             return [UIImage imageWithData:value];
+        }];
+        
+        [self.didBecomeActiveSignal subscribeNext:^(id x) {
+            @strongify(self);
+            [self downloadPhotoModelDetails];
         }];
     }
     return self;

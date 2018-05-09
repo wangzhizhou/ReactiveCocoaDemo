@@ -14,6 +14,9 @@
 @end
 
 @implementation FRPGalleryViewModel
+
+@dynamic model;
+
 -(instancetype)init {
     if(self = [super init]) {
         RAC(self, model) = [[[FRPPhotoImporter importPhotos] logError] catchTo:[RACSignal empty]];

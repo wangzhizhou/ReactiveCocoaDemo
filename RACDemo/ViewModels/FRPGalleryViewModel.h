@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface FRPGalleryViewModel : RVMViewModel
-@property(nonatomic,readonly,strong)NSArray*model;
+@property(nonatomic,readonly,strong)NSArray *model;
 @end

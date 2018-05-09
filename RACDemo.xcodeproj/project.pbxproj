@@ -118,16 +118,8 @@
 		0E1DDAE820A0289800EBC8D2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0E6FEB4E20A02170002D15CF /* FRPGalleryViewController.h */,
-				0E6FEB4F20A02170002D15CF /* FRPGalleryViewController.m */,
-				0E6FEB5120A021CE002D15CF /* FRPGalleryFlowLayout.h */,
-				0E6FEB5220A021CE002D15CF /* FRPGalleryFlowLayout.m */,
-				0E1DDAF020A030B700EBC8D2 /* FRPCell.h */,
-				0E1DDAF120A030B700EBC8D2 /* FRPCell.m */,
-				0E1DDAF320A03AF000EBC8D2 /* FRPFullSizePhotoViewController.h */,
-				0E1DDAF420A03AF000EBC8D2 /* FRPFullSizePhotoViewController.m */,
-				0E1DDAF620A0406A00EBC8D2 /* FRPPhotoViewController.h */,
-				0E1DDAF720A0406A00EBC8D2 /* FRPPhotoViewController.m */,
+				0E7F89F420A294F800F56FBD /* Thumbnail */,
+				0E7F89F520A2951200F56FBD /* FullSize */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,12 +127,12 @@
 		0E1DDAE920A028AA00EBC8D2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				0E1DDAF920A0748200EBC8D2 /* FRPFullSizePhotoViewModel.h */,
-				0E1DDAFA20A0748200EBC8D2 /* FRPFullSizePhotoViewModel.m */,
 				0E1DDAFC20A07D9200EBC8D2 /* FRPGalleryViewModel.h */,
 				0E1DDAFD20A07D9200EBC8D2 /* FRPGalleryViewModel.m */,
 				F384C73D20A096C300DA4580 /* FRPPhotoViewModel.h */,
 				F384C73E20A096C300DA4580 /* FRPPhotoViewModel.m */,
+				0E1DDAF920A0748200EBC8D2 /* FRPFullSizePhotoViewModel.h */,
+				0E1DDAFA20A0748200EBC8D2 /* FRPFullSizePhotoViewModel.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -169,21 +161,11 @@
 		0E6FEB26209FF45B002D15CF /* RACDemo */ = {
 			isa = PBXGroup;
 			children = (
-				0E1DDAE920A028AA00EBC8D2 /* ViewModels */,
-				0E1DDAE820A0289800EBC8D2 /* Views */,
+				0E7F89F220A285FC00F56FBD /* Commons */,
 				0E1DDAE720A0288F00EBC8D2 /* Models */,
-				0E6FEB27209FF45B002D15CF /* AppDelegate.h */,
-				0E6FEB28209FF45B002D15CF /* AppDelegate.m */,
-				0E6FEB2A209FF45B002D15CF /* ViewController.h */,
-				0E6FEB2B209FF45B002D15CF /* ViewController.m */,
-				0E6FEB2D209FF45B002D15CF /* Main.storyboard */,
-				0E6FEB30209FF45D002D15CF /* Assets.xcassets */,
-				0E6FEB32209FF45D002D15CF /* LaunchScreen.storyboard */,
-				0E6FEB35209FF45D002D15CF /* Info.plist */,
-				0E6FEB36209FF45D002D15CF /* main.m */,
-				0E6FEB5520A02454002D15CF /* FRP-Prefix.pch */,
-				0E1DDAED20A0296F00EBC8D2 /* FRPPhotoImporter.h */,
-				0E1DDAEE20A0296F00EBC8D2 /* FRPPhotoImporter.m */,
+				0E1DDAE820A0289800EBC8D2 /* Views */,
+				0E1DDAE920A028AA00EBC8D2 /* ViewModels */,
+				0E7F89F320A2862800F56FBD /* Supports */,
 			);
 			path = RACDemo;
 			sourceTree = "<group>";
@@ -197,6 +179,56 @@
 				0E1DDAFF20A1340F00EBC8D2 /* FRPPhotoViewModelTests.m */,
 			);
 			path = RACDemoTests;
+			sourceTree = "<group>";
+		};
+		0E7F89F220A285FC00F56FBD /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				0E6FEB5520A02454002D15CF /* FRP-Prefix.pch */,
+				0E1DDAED20A0296F00EBC8D2 /* FRPPhotoImporter.h */,
+				0E1DDAEE20A0296F00EBC8D2 /* FRPPhotoImporter.m */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		0E7F89F320A2862800F56FBD /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				0E6FEB2D209FF45B002D15CF /* Main.storyboard */,
+				0E6FEB2A209FF45B002D15CF /* ViewController.h */,
+				0E6FEB2B209FF45B002D15CF /* ViewController.m */,
+				0E6FEB27209FF45B002D15CF /* AppDelegate.h */,
+				0E6FEB28209FF45B002D15CF /* AppDelegate.m */,
+				0E6FEB30209FF45D002D15CF /* Assets.xcassets */,
+				0E6FEB32209FF45D002D15CF /* LaunchScreen.storyboard */,
+				0E6FEB35209FF45D002D15CF /* Info.plist */,
+				0E6FEB36209FF45D002D15CF /* main.m */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		0E7F89F420A294F800F56FBD /* Thumbnail */ = {
+			isa = PBXGroup;
+			children = (
+				0E6FEB4E20A02170002D15CF /* FRPGalleryViewController.h */,
+				0E6FEB4F20A02170002D15CF /* FRPGalleryViewController.m */,
+				0E6FEB5120A021CE002D15CF /* FRPGalleryFlowLayout.h */,
+				0E6FEB5220A021CE002D15CF /* FRPGalleryFlowLayout.m */,
+				0E1DDAF020A030B700EBC8D2 /* FRPCell.h */,
+				0E1DDAF120A030B700EBC8D2 /* FRPCell.m */,
+			);
+			path = Thumbnail;
+			sourceTree = "<group>";
+		};
+		0E7F89F520A2951200F56FBD /* FullSize */ = {
+			isa = PBXGroup;
+			children = (
+				0E1DDAF620A0406A00EBC8D2 /* FRPPhotoViewController.h */,
+				0E1DDAF720A0406A00EBC8D2 /* FRPPhotoViewController.m */,
+				0E1DDAF320A03AF000EBC8D2 /* FRPFullSizePhotoViewController.h */,
+				0E1DDAF420A03AF000EBC8D2 /* FRPFullSizePhotoViewController.m */,
+			);
+			path = FullSize;
 			sourceTree = "<group>";
 		};
 		95E6DE369245C3F3EBE7148E /* Frameworks */ = {
@@ -551,10 +583,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2N62934Y28;
+				DEVELOPMENT_TEAM = 7C4W75ZNA4;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/RACDemo/FRP-Prefix.pch";
-				INFOPLIST_FILE = RACDemo/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/RACDemo/Commons/FRP-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/RACDemo/Supports/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -571,10 +603,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2N62934Y28;
+				DEVELOPMENT_TEAM = 7C4W75ZNA4;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/RACDemo/FRP-Prefix.pch";
-				INFOPLIST_FILE = RACDemo/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/RACDemo/Commons/FRP-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/RACDemo/Supports/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
