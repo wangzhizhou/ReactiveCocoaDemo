@@ -14,7 +14,6 @@
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <500px-iOS-api/PXAPI.h>
-#import <libextobjc/EXTScope.h>
 #import <SVProgressHUD.h>
 #import <ReactiveViewModel.h>
 

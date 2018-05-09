@@ -15,6 +15,7 @@
 @property (nonatomic, readonly, strong)UIImage *photoImage;
 @property (nonatomic, readonly, assign)BOOL isLoading;
 
+- (instancetype)initWithModel:(FRPPhotoModel *)model;
 -(NSString *)photoName;
 
 @end

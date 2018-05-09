@@ -6,7 +6,6 @@ target 'RACDemo' do
     # use_frameworks!
     
     # Pods for RACDemo
-    pod 'ReactiveObjC'
     pod '500px-iOS-api'
     pod 'SVProgressHUD'
     pod 'ReactiveViewModel'
@@ -15,7 +14,6 @@ target 'RACDemo' do
         inherit! :search_paths
         # Pods for testing
         
-        pod 'ReactiveObjC'
         pod '500px-iOS-api'
         pod 'ReactiveViewModel'
         pod 'Specta','~>0.2.1'

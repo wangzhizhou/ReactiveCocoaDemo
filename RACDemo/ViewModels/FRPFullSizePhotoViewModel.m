@@ -10,16 +10,16 @@
 #import "FRPPhotoModel.h"
 
 @interface FRPFullSizePhotoViewModel()
+@property(nonatomic, strong)NSArray *model;
 @property(nonatomic, assign)NSUInteger initialPhotoIndex;
 @end
 
 @implementation FRPFullSizePhotoViewModel
 
-@dynamic model;
-
 -(instancetype)initWithPhotoArray:(NSArray *)photoArray initialPhotoIndex:(NSInteger)initialPhotoIndex {
     
-    if(self = [super initWithModel:photoArray]) {
+    if(self = [super init]) {
+        self.model = photoArray;
         self.initialPhotoIndex = initialPhotoIndex;
     }
     return self;

@@ -12,19 +12,20 @@
 #import "FRPPhotoModel.h"
 
 @interface FRPPhotoViewModel()
+
+@property (nonatomic, strong)FRPPhotoModel *model;
 @property (nonatomic, strong)UIImage *photoImage;
 @property (nonatomic, assign)BOOL isLoading;
 @end
 
 @implementation FRPPhotoViewModel
-@dynamic model;
 
 - (instancetype)initWithModel:(FRPPhotoModel *)model {
     
-    if(self = [super initWithModel:model]) {
+    if(self = [super init]) {
+        self.model = model;
         
         @weakify(self);
-        
         RAC(self, photoImage) = [RACObserve(self.model, fullsizedData) map:^id(id value) {
             return [UIImage imageWithData:value];
         }];
